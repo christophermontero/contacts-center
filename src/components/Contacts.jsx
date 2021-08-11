@@ -1,5 +1,6 @@
 import React from 'react';
 import ContactsBoard from './ContactsBoard';
+import FormAddContact from './FormAddContact';
 
 const Contacts = () => {
   const contacts = [
@@ -17,6 +18,7 @@ const Contacts = () => {
 
   return (
     <div className="container mt-3">
+      <FormAddContact />
       <ContactsBoard contacts={contacts} />
     </div>
   )
