@@ -1,22 +1,60 @@
-import React from 'react';
-// import PropTypes from 'prop-types';
+import React, { useState } from "react";
+//import PropTypes from "prop-types";
 
-const FormAddContact = () => {
+const FormAddContact = ({ dispatch }) => {
+  const [data, setData] = useState({ name: "", phone: "" });
+  const { name, phone } = data;
+  const handleChange = (e) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const actionAdd = {
+    type: "add",
+    payload: {
+      id: "1234",
+      name,
+      phone,
+    },
+  };
+
+  const handleAdd = () => {
+    dispatch(actionAdd);
+  };
+
   return (
-    <div>
+    <>
       <label className="mx-1 d-grid gap-2">Name: </label>
-      <input type="text" className="form-control" autoComplete="off" />
+      <input
+        onChange={handleChange}
+        name="name"
+        value={name}
+        type="text"
+        className="form-control"
+        autoComplete="off"
+      />
       <label className="mx-1 d-grid gap-2">Phone: </label>
-      <input type="text" className="form-control" autoComplete="off" />
+      <input
+        onChange={handleChange}
+        name="phone"
+        value={phone}
+        type="text"
+        className="form-control"
+        autoComplete="off"
+      />
       <div className="mx-1 my-2 d-grid gap-2">
-        <button className="btn btn-info">Add</button>
+        <button onClick={handleAdd} className="btn btn-info">
+          Add
+        </button>
       </div>
-    </div>
-  )
-}
+    </>
+  );
+};
 
-// FormAddContact.propTypes = {
-
-// }
+//FormAddContact.propTypes = {
+//dispatch: PropTypes.object,
+//};
 
 export default FormAddContact;
