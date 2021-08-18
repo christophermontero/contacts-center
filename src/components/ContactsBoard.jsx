@@ -1,5 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
 const ContactsBoard = ({ contacts }) => {
   return (
@@ -15,23 +15,27 @@ const ContactsBoard = ({ contacts }) => {
         </thead>
         <tbody>
           {contacts.map((contact) => {
-            return <tr key={contact.id}>
-              <th>{contact.id}</th>
-              <td>{contact.name}</td>
-              <td>{contact.phone}</td>
-              <td>
-                <button className="btn btn-danger">Delete</button>
-              </td>
-            </tr>
+            const displayId = contact.id.split("-");
+
+            return (
+              <tr key={contact.id}>
+                <th>{displayId[0]}</th>
+                <td>{contact.name}</td>
+                <td>{contact.phone}</td>
+                <td>
+                  <button className="btn btn-danger">Delete</button>
+                </td>
+              </tr>
+            );
           })}
         </tbody>
       </table>
     </div>
-  )
+  );
 };
 
 ContactsBoard.propTypes = {
-  contacts: PropTypes.array
-}
+  contacts: PropTypes.array,
+};
 
-export default ContactsBoard
+export default ContactsBoard;

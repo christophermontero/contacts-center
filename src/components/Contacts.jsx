@@ -5,12 +5,12 @@ import { ContactsReducer } from "./reducers/ContactsReducer.js";
 
 const contacts = [
   {
-    id: 1,
+    id: "1",
     name: "Richard Stallman",
     phone: "12345678",
   },
   {
-    id: 2,
+    id: "2",
     name: "Steve Jobs",
     phone: "12345679",
   },

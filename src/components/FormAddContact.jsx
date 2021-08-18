@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { v4 as uuid } from "uuid";
 //import PropTypes from "prop-types";
 
 const FormAddContact = ({ dispatch }) => {
@@ -14,7 +15,7 @@ const FormAddContact = ({ dispatch }) => {
   const actionAdd = {
     type: "add",
     payload: {
-      id: "1234",
+      id: uuid(),
       name,
       phone,
     },
