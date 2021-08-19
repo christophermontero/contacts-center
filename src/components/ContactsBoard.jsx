@@ -1,7 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const ContactsBoard = ({ contacts }) => {
+const ContactsBoard = ({ contacts = [], dispatch }) => {
+  const handleDelete = (id) => {
+    const deleteAction = {
+      type: "delete",
+      payload: id,
+    };
+
+    dispatch(deleteAction);
+  };
+
   return (
     <div>
       <table className="table">
@@ -23,7 +32,12 @@ const ContactsBoard = ({ contacts }) => {
                 <td>{contact.name}</td>
                 <td>{contact.phone}</td>
                 <td>
-                  <button className="btn btn-danger">Delete</button>
+                  <button
+                    onClick={() => handleDelete(contact.id)}
+                    className="btn btn-danger"
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             );

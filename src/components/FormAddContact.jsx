@@ -5,6 +5,7 @@ import { v4 as uuid } from "uuid";
 const FormAddContact = ({ dispatch }) => {
   const [data, setData] = useState({ name: "", phone: "" });
   const { name, phone } = data;
+
   const handleChange = (e) => {
     setData({
       ...data,
